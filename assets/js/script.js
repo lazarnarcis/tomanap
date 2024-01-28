@@ -343,12 +343,14 @@ $(document).ready(function() {
             },
             dataType: "json",
             success: function(data) {
-                new DataTable('#tableScores');
+                let table = new DataTable('#tableScores');
+                table.clear();
                 if (data && data.length) {
                     for (let p =0 ; p < data.length; p++) {
                         addNewRow(data[p]);
                     }
                 }
+                table.draw();
             }
         });
     });
